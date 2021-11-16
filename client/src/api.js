@@ -3,6 +3,12 @@ const url = "api/record";
  
 
 export default class API {
+  //add record
+  static async addRecord(record){
+    const res = await axios.post(url, record);
+    return res.data
+  }
+
   //get all the records
   static async getAllRecords() {
     const res = await axios.get(url);
@@ -27,7 +33,7 @@ export default class API {
     return res.data;
   }
   //update record
-  static async addRecord(id, record) {
+  static async updateRecord(id, record) {
     const res = await axios.patch(`${url}/${id}`, record);
     return res.data;
   }

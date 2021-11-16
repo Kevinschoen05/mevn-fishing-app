@@ -52,7 +52,7 @@ module.exports = class API {
     record.image = imagename;
     try {
       await Record.create(record);
-      res.status(201).json({ message: "Post Created Successfully" });
+      res.status(201).json({ message: "Post Created Successfully!" });
     } catch (err) {
       res.status(400).json({ message: err.message });
     }
