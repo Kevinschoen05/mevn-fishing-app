@@ -14,11 +14,10 @@
     </v-row>
     <v-overlay :value="overlay">
       <v-row>
-          <v-data-table :headers="headers" :items="recordsByDate">
-          </v-data-table>
+        <v-data-table :headers="headers" :items="recordsByDate"> </v-data-table>
       </v-row>
       <v-row justify="center" class="pt-4">
-        <v-btn @click="overlay = !overlay">Close Trip Details</v-btn>
+        <v-btn @click="(overlay = !overlay), purgeTable()">Close Trip Details</v-btn>
       </v-row>
     </v-overlay>
   </v-container>
@@ -45,7 +44,6 @@ export default {
       ],
     };
   },
-  watch: {},
   methods: {
     //takes full set of fish records and pulls only the unique dates so there are no duplicate dates
     getTripDates(records) {
@@ -68,10 +66,13 @@ export default {
         //console.log(date)
         //console.log(this.clickedDate)
         if (date == this.clickedDate) {
-          this.recordsByDate.push(records[i]);
+            this.recordsByDate.push(records[i]);
         }
       }
     },
+    purgeTable(){
+      this.recordsByDate = []
+    }
   },
 
   async created() {
