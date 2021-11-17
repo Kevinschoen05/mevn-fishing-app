@@ -26,12 +26,13 @@
 
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title >Reservoir Fishing</v-toolbar-title>
+      <v-btn :to="homeLink" text="true" :ripple="false" background-color: transparent>
+        <v-toolbar-title>Reservoir Fishing</v-toolbar-title>
+      </v-btn>
     </v-app-bar>
 
     <v-main>
-      <router-view></router-view>
+      <router-view :key="$route.fullPath"></router-view>
     </v-main>
   </v-app>
 </template>
@@ -42,11 +43,17 @@ export default {
     drawer: null,
     selectedItem: 1,
     items: [
-      { title: "Muscoot", icon: "mdi-map", link: '/muscoot'},
-      { title: "Croton", icon: "mdi-map", link: '/croton'},
-      { title: 'Record Fish', icon: "mdi-note-plus", link: '/add-record'}
-
+      { title: "Muscoot", icon: "mdi-map", link: "/muscoot" },
+      { title: "Croton", icon: "mdi-map", link: "/croton" },
+      { title: "Record Fish", icon: "mdi-note-plus", link: "/add-record" },
     ],
+    homeLink: "/",
   }),
 };
 </script>
+
+<style scoped>
+.v-btn::before {
+  background-color: transparent;
+}
+</style>

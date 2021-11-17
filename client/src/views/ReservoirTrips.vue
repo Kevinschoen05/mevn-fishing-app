@@ -17,7 +17,9 @@
         <v-data-table :headers="headers" :items="recordsByDate"> </v-data-table>
       </v-row>
       <v-row justify="center" class="pt-4">
-        <v-btn @click="(overlay = !overlay), purgeTable()">Close Trip Details</v-btn>
+        <v-btn @click="(overlay = !overlay), purgeTable()"
+          >Close Trip Details</v-btn
+        >
       </v-row>
     </v-overlay>
   </v-container>
@@ -63,22 +65,19 @@ export default {
     filterRecords(records) {
       for (var i = 0; i < records.length; i++) {
         var date = this.formatDates(records[i].date);
-        //console.log(date)
-        //console.log(this.clickedDate)
         if (date == this.clickedDate) {
-            this.recordsByDate.push(records[i]);
+          this.recordsByDate.push(records[i]);
         }
       }
     },
-    purgeTable(){
-      this.recordsByDate = []
-    }
+    purgeTable() {
+      this.recordsByDate = [];
+    },
   },
 
   async created() {
     this.records = await API.getRecordsByReservoir(this.reservoir);
     this.getTripDates(this.records);
-    //console.log(this.tripDates)
   },
 };
 </script>
