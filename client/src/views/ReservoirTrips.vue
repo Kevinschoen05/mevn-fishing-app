@@ -12,8 +12,14 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-overlay :value="overlay" @click="(overlay = !overlay)">
-      <v-data-table :headers="headers" :items="recordsByDate"> </v-data-table>
+    <v-overlay :value="overlay">
+      <v-row>
+          <v-data-table :headers="headers" :items="recordsByDate">
+          </v-data-table>
+      </v-row>
+      <v-row justify="center" class="pt-4">
+        <v-btn @click="overlay = !overlay">Close Trip Details</v-btn>
+      </v-row>
     </v-overlay>
   </v-container>
 </template>
