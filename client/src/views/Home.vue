@@ -34,12 +34,12 @@ export default {
         {
           name: "Muscoot",
           image: muscootImage,
-          link: "/muscoot",
+          link: "/Muscoot",
         },
         {
           name: "Croton",
           image: crotonImage,
-          link: "/croton",
+          link: "/Croton",
         },
       ],
     };
