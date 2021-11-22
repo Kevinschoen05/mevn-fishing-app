@@ -26,7 +26,7 @@
 
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-btn :to="homeLink" text="true" :ripple="false" background-color: transparent>
+      <v-btn :to="homeLink" text=true  :ripple="false" background-color: transparent>
         <v-toolbar-title>Reservoir Fishing</v-toolbar-title>
       </v-btn>
     </v-app-bar>

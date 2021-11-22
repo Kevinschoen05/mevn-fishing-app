@@ -1,5 +1,10 @@
 <template>
   <v-container fill-height>
+    <v-card width="100%">
+      <h1>{{ reservoir }}</h1>
+      <h2>Total Trips: {{ totalTrips }}</h2>
+      <h2>Total Weight: {{ totalWeight }} Pounds</h2>
+    </v-card>
     <v-row no-gutters class="d-flex justify-space-between align-center">
       <v-col sm="4" class="pa-3" v-for="date in tripDates" :key="date">
         <v-card
@@ -37,6 +42,8 @@ export default {
       records: [],
       tripDates: [],
       recordsByDate: [],
+      totalWeight: 0,
+      totalTrips: 0,
       overlay: false,
       clickedDate: "",
       headers: [
@@ -73,11 +80,19 @@ export default {
     purgeTable() {
       this.recordsByDate = [];
     },
+
+    calcTripTotals(tripRecords) {
+      for (var i = 0; i < tripRecords.length; i++) {
+        this.totalWeight += tripRecords[i].weight;
+      }
+      this.totalTrips = this.tripDates.length;
+    },
   },
 
   async created() {
     this.records = await API.getRecordsByReservoir(this.reservoir);
     this.getTripDates(this.records);
+    this.calcTripTotals(this.records);
   },
 };
 </script>
