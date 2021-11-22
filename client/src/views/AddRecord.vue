@@ -36,19 +36,10 @@
               prepend-icon="mdi-map"
               :rules="rules"
             ></v-select>
-            <v-file-input
-              @change="selectFile"
-              :rules="rules"
-              show-size
-              counter
-              multiple
-              label="Select Image"
-            ></v-file-input>
             <v-textarea
               label="Comments"
               v-model="record.comment"
               prepend-icon="mdi-note"
-              :rules="rules"
             ></v-textarea>
             <v-btn type="submit" class="mt-3" color="primary">Add Fish</v-btn>
           </v-form>
@@ -70,21 +61,15 @@ export default {
         reservoir: "",
         comment: "",
         date: "",
-        image: "",
       },
-      image: "",
       reservoirs:[ "Muscoot", "Croton"] 
     };
 
   },
   methods: {
-    selectFile(file) {
-      this.image = file[0];
-    },
 
     async submitForm() {
       const formData = new FormData();
-      formData.append("image", this.image);
       formData.append("species", this.record.species);
       formData.append("angler", this.record.angler);
       formData.append("weight", this.record.weight);
