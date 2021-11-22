@@ -48,8 +48,6 @@ module.exports = class API {
   //insert record
   static async insertRecord(req, res) {
     const record = req.body;
-    const imagename = req.file.filename;
-    record.image = imagename;
     try {
       await Record.create(record);
       res.status(201).json({ message: "Post Created Successfully!" });
@@ -60,19 +58,7 @@ module.exports = class API {
   //update record by ID
   static async updateRecord(req, res) {
     const id = req.params.id;
-    let new_image = "";
-    if (req.file) {
-      new_image = req.file.filename;
-      try {
-        fs.unlinkSync("./uploads/" + req.body.old_image);
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      new_image = req.body.old_image;
-    }
     const newPost = req.body;
-    newPost.image = new_image;
 
     try {
       await Record.findByIdAndUpdate(id, newPost);

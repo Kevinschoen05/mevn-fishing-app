@@ -9,11 +9,7 @@ const recordSchema = mongoose.Schema({
         type: Date, 
         default: Date.now()
     },
-    comment: String,
-    image: {
-        type: String,
-        require: false 
-    }
+    comment: String
 
 })
 module.exports = mongoose.model("Record", recordSchema)

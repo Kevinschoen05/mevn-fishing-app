@@ -36,14 +36,6 @@
               prepend-icon="mdi-map"
               :rules="rules"
             ></v-select>
-            <v-file-input
-              @change="selectFile"
-              :rules="rules"
-              show-size
-              counter
-              multiple
-              label="Select Image"
-            ></v-file-input>
             <v-textarea
               label="Comments"
               v-model="record.comment"
@@ -78,13 +70,9 @@ export default {
 
   },
   methods: {
-    selectFile(file) {
-      this.image = file[0];
-    },
 
     async submitForm() {
       const formData = new FormData();
-      formData.append("image", this.image);
       formData.append("species", this.record.species);
       formData.append("angler", this.record.angler);
       formData.append("weight", this.record.weight);
