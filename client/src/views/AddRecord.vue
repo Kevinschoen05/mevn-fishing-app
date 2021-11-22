@@ -87,7 +87,6 @@ export default {
       formData.append("weight", this.record.weight);
       formData.append("reservoir", this.record.reservoir);
       formData.append("comment", this.record.comment);
-      console.log(formData);
       if (this.$refs.form.validate()) {
         const response = await API.addRecord(formData);
         this.$router.push({
@@ -95,7 +94,7 @@ export default {
           params: { message: response.message },
         });
       }
-        console.log(formData);
+        
     },
   },
 };
