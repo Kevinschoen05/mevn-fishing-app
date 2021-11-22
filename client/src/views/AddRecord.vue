@@ -40,7 +40,6 @@
               label="Comments"
               v-model="record.comment"
               prepend-icon="mdi-note"
-              :rules="rules"
             ></v-textarea>
             <v-btn type="submit" class="mt-3" color="primary">Add Fish</v-btn>
           </v-form>
@@ -62,9 +61,7 @@ export default {
         reservoir: "",
         comment: "",
         date: "",
-        image: "",
       },
-      image: "",
       reservoirs:[ "Muscoot", "Croton"] 
     };
 
