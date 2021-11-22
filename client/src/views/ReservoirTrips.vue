@@ -13,7 +13,7 @@
             (overlay = !overlay), (clickedDate = date), filterRecords(records)
           "
         >
-          <v-card-title class="headline">{{ date }}</v-card-title>
+          <v-card-title  class="headline">{{ date }}</v-card-title>
         </v-card>
       </v-col>
     </v-row>
