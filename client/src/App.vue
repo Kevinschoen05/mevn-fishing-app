@@ -43,8 +43,8 @@ export default {
     drawer: null,
     selectedItem: 1,
     items: [
-      { title: "Muscoot", icon: "mdi-map", link: "/muscoot" },
-      { title: "Croton", icon: "mdi-map", link: "/croton" },
+      { title: "Muscoot", icon: "mdi-map", link: "/Muscoot" },
+      { title: "Croton", icon: "mdi-map", link: "/Croton" },
       { title: "Record Fish", icon: "mdi-note-plus", link: "/add-record" },
     ],
     homeLink: "/",

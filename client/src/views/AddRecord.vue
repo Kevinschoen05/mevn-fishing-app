@@ -29,12 +29,13 @@
               prepend-icon="mdi-scale"
               :rules="rules"
             ></v-text-field>
-            <v-text-field
+            <v-select
               label="Reservoir"
+              :items="reservoirs"
               v-model="record.reservoir"
               prepend-icon="mdi-map"
               :rules="rules"
-            ></v-text-field>
+            ></v-select>
             <v-file-input
               @change="selectFile"
               :rules="rules"
@@ -72,7 +73,9 @@ export default {
         image: "",
       },
       image: "",
+      reservoirs:[ "Muscoot", "Croton"] 
     };
+
   },
   methods: {
     selectFile(file) {
