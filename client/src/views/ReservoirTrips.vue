@@ -14,9 +14,8 @@
           "
           color="#F6F6F6"
         >
-          <v-card-title class="headline">{{ date }}</v-card-title>
-          <h2>Total Fish:</h2>
-          <h2>Total Weight:</h2>
+          <v-card-title class="text-center headline">{{ date }}</v-card-title>
+          <trip-totals :date="date" :records="records"></trip-totals>
         </v-card>
       </v-col>
     </v-row>
@@ -35,18 +34,17 @@
 
 <script>
 import API from "../api";
+import TripTotals from "./TripTotals.vue";
 export default {
   name: "ReservoirTrips",
   emits: ["records", "tripDates"],
-
+  components: { TripTotals },
   data() {
     return {
       reservoir: this.$route.params.reservoir,
       records: [],
       tripDates: [],
       recordsByDate: [],
-      weightByTrip: 0,
-      fishByTrip: 0,
       totalWeight: 0,
       totalTrips: 0,
       overlay: false,
@@ -112,3 +110,5 @@ export default {
   },
 };
 </script>
+<style scoped>
+</style>
