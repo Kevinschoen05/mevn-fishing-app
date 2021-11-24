@@ -2,7 +2,7 @@
    
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer color="#6D9886" v-model="drawer" app class="top-bar">
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title>Reservoir Fishing</v-list-item-title>
@@ -24,18 +24,25 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app>
+    <v-app-bar color="#6D9886" app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-btn :to="homeLink" text=true  :ripple="false" background-color: transparent>
+      <v-btn
+        :to="homeLink"
+        text="true"
+        :ripple="false"
+        background-color:
+        transparent
+      >
         <v-toolbar-title>Reservoir Fishing</v-toolbar-title>
       </v-btn>
     </v-app-bar>
 
-    <v-main>
+    <v-main class="main-container">
       <router-view :key="$route.fullPath"></router-view>
     </v-main>
   </v-app>
 </template>
+
 
 <script>
 export default {
@@ -55,5 +62,12 @@ export default {
 <style scoped>
 .v-btn::before {
   background-color: transparent;
+}
+.main-container {
+  background-color: #d9cab3;
+}
+
+.top-bar {
+  background-color: #212121;
 }
 </style>

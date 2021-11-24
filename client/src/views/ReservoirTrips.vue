@@ -1,9 +1,9 @@
 <template>
   <v-container fill-height>
-    <v-card width="100%">
+    <v-card width="100%" color="#F6F6F6">
       <h1>{{ reservoir }}</h1>
       <h2>Total Trips: {{ totalTrips }}</h2>
-      <h2>Total Weight: {{ totalWeight }} Pounds</h2>
+      <h2>Total Weight: {{ totalWeight.toFixed(2) }} Pounds</h2>
     </v-card>
     <v-row no-gutters class="d-flex justify-space-between align-center">
       <v-col sm="4" class="pa-3" v-for="date in tripDates" :key="date">
@@ -12,6 +12,7 @@
           @click="
             (overlay = !overlay), (clickedDate = date), filterRecords(records)
           "
+          color="#F6F6F6"
         >
           <v-card-title  class="headline">{{ date }}</v-card-title>
         </v-card>
@@ -83,7 +84,8 @@ export default {
 
     calcTripTotals(tripRecords) {
       for (var i = 0; i < tripRecords.length; i++) {
-        this.totalWeight += tripRecords[i].weight;
+        this.totalWeight += tripRecords[i].weight
+        
       }
       this.totalTrips = this.tripDates.length;
     },
