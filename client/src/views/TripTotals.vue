@@ -1,8 +1,23 @@
 <template>
-  <v-container class="totals ">
-    <h2>Total Fish: {{ totalFish }}</h2>
-    <h2>Total Weight: {{ totalWeight.toFixed(2) }}</h2>
-    <h2>Anglers: {{ anglers }}</h2>
+  <v-container class="totals">
+    <ul>
+      <li>
+        <h2> Total Fish: {{ totalFish }}</h2>
+      </li>
+      <li>
+        <h2>Total Weight: {{ totalWeight.toFixed(2) }}</h2>
+      </li>
+      <li>
+        <ul>
+          <li>
+            <h2>Anglers:</h2>
+          </li>
+          <li v-for="angler in anglers" :key="angler">
+            <h2>{{ angler }}</h2>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </v-container>
 </template>
 
@@ -36,8 +51,19 @@ export default {
 </script>
 
 <style scoped>
-    .totals{ 
-        text-align: center;
-        align-content: center;
-    }
+.totals {
+  text-align: center;
+  align-content: center;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  padding-right: 16px;
+}
 </style>

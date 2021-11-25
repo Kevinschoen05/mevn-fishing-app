@@ -6,11 +6,12 @@
       color="green accent-4"
       dismissible
       v-if="this.$route.params.message"
-    >{{this.$route.params.message}}</v-alert>
+      >{{ this.$route.params.message }}</v-alert
+    >
     <v-row no-gutters class="d-flex justify-space-between">
       <v-col
         sm="4"
-        class="pa-3"
+        class="pa-4"
         v-for="reservoir in reservoirs"
         :key="reservoir.name"
       >

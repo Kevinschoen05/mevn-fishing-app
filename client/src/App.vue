@@ -6,7 +6,7 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title>Reservoir Fishing</v-list-item-title>
-          <v-list-item-subtitle>2020</v-list-item-subtitle>
+          <v-list-item-subtitle>2021</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
       <v-divider></v-divider>
