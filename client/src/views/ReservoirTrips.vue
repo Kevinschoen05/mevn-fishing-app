@@ -1,20 +1,19 @@
 <template>
   <v-container fill-height>
-    <v-card width="100%" color="#F6F6F6">
-      <h1>{{ reservoir }}</h1>
+    <v-card class="header" width="100%" img="'../assets/muscoot.jpeg'">
+      <h1>{{ reservoir }} Reservoir</h1>
       <h2>Total Trips: {{ totalTrips }}</h2>
-      <h2>Total Weight: {{ totalWeight.toFixed(2) }} Pounds</h2>
-    </v-card>
+      <h2>Total Weight: {{ totalWeight.toFixed(2) }} lbs</h2>
+    </v-card >
     <v-row no-gutters class="justify-space-between align-center">
       <v-col sm="12" class="pa-3" v-for="date in tripDates" :key="date">
         <v-card
-          class="pa-1"
           @click="
             (overlay = !overlay), (clickedDate = date), filterRecords(records)
           "
-          color="#F6F6F6"
+          color="#F6F6F6" 
         >
-          <v-card-title class="text-center headline">{{ date }}</v-card-title>
+          <v-card-title class="headline">{{ date }}</v-card-title>
           <trip-totals :date="date" :records="records"></trip-totals>
         </v-card>
       </v-col>
@@ -111,4 +110,26 @@ export default {
 };
 </script>
 <style scoped>
+
+h1{
+  font-size: 70px;
+}
+.headline {
+  background-color: #212121;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white
+}
+
+.header {
+  text-align: center;
+  color: black;
+  background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('../assets/muscoot.jpeg') center center  !important;
+  background-size: cover;
+
+}
+
+
+
+
 </style>
