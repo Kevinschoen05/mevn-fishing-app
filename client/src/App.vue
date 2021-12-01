@@ -52,6 +52,7 @@ export default {
     items: [
       { title: "Muscoot", icon: "mdi-map", link: "/Muscoot" },
       { title: "Croton", icon: "mdi-map", link: "/Croton" },
+      {title: "Anglers", icon: "mdi-account-group", link: "anglers"},
       { title: "Record Fish", icon: "mdi-note-plus", link: "/add-record" },
     ],
     homeLink: "/",

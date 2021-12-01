@@ -33,7 +33,7 @@
 
 <script>
 import API from "../api";
-import TripTotals from "./TripTotals.vue";
+import TripTotals from "../components/TripTotals.vue";
 export default {
   name: "ReservoirTrips",
   emits: ["records", "tripDates"],
