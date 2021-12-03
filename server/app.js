@@ -28,6 +28,12 @@ mongoose
 
 //routes prefix 
 app.use('/api/record', require('./routes/routes'))
-//start server
 
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static(__dirname + '/dist/'))
+  app.get( '*', (req, res) => {
+    res.sendFile(__dirname + "/dist/index.html ")
+  })
+}
+//start server
 app.listen(port, () => console.log(`sever running at http://localhost:${port}`))
